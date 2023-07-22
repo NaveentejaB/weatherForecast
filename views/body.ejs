@@ -1,0 +1,45 @@
+<%- include('header'); -%>
+        <div class="container">
+        <div class="btns">
+            <button type="submit" class="search" onclick="window.location.reload(true)">Show Weather Forecast</button>
+            <form action="/getWeather" method="post">
+                <button type="submit" class="search" >back</button>
+            </form>   
+        </div>
+            <% for(let i=0; i< weatherDetails.length ; i++){%>
+                <div class="card">
+                    <div class="left">
+                        <div class="count">
+                            <p><%= weatherDetails[i].countryName %></p>
+                        </div>
+                        <div class="cityName">
+                            <p><%= weatherDetails[i].city %></p>
+                        </div>
+                        <div class="temp">
+                            <%= weatherDetails[i].temp %>
+                            <p>°C</p>
+                        </div>
+                        <div class="felt">
+                            <p><%= weatherDetails.weatherDescrip %></p>
+                        </div>
+                    </div>
+                    <div class="right">
+                        <div class="right_img">
+                            <img src= <%= weatherDetails[i].imgUrl%> alt="">
+                        </div>
+                        <div class="felTemp">
+                            <p>Feels like</p>
+                            <div class="ftTemp"><%= weatherDetails[i].feelLikeTemp %>°C</div>
+                        </div>
+                        <div class="hline">
+                            <div class="hline_rec"></div>
+                        </div>
+                        <div class="humid">
+                            <p>Humidiy</p>
+                            <div class="per"><%= weatherDetails[i].humid %> %</div>
+                        </div>
+                    </div>
+                </div>
+            <%}%>
+        </div>
+<%- include('footer'); -%>
