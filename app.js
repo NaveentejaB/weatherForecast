@@ -59,8 +59,10 @@ app.post("/getWeather",function(req,res){
     cityDetails = [];
     res.redirect("/");
 });
-app.listen(3000,function(){
-    console.log("Server is running local port 4000");
+
+const port = process.env.PORT || 3000 ;
+app.listen(port,()=>{
+    console.log(`Server is running at port ${port}`);
 });
 
 //  res.render("body",{
